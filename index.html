@@ -7,11 +7,16 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 </head>
-<body>
+<body class="body-bg">
   <header class="topbar">
     <div class="logo">
       <img src="assets/logo.svg" alt="DiamondTrainer logo" />
-      <h1>DiamondTrainer</h1>
+      <h1 class="site-title">DiamondTrainer <span class="subtitle">Train a player, train a model</span></h1>
+    </div>
+    <div class="scoreboard" aria-hidden="false">
+      <div class="score-item">INNING <span class="score-val">1</span></div>
+      <div class="score-item">OUTS <span class="score-val">0</span></div>
+      <div class="score-item">COUNT <span class="score-val">0-0</span></div>
     </div>
     <div class="top-actions">
       <button id="exportBtn">Export snapshot</button>
@@ -112,8 +117,35 @@
     </aside>
 
     <section class="center">
-      <svg id="networkSvg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"></svg>
-      <canvas id="plot" width="800" height="200"></canvas>
+      <div class="trainer-card">
+        <div class="trainer-display" id="trainerDisplay" aria-live="polite">—</div>
+        <div class="trainer-meta">
+          <div id="pitchCall" class="pitch-call"> </div>
+        </div>
+        <div class="trainer-controls">
+          <button id="startTrainer" class="primary">Start</button>
+          <button id="stopTrainer">Stop</button>
+          <button id="resetTrainer">Reset</button>
+        </div>
+
+        <div class="trainer-settings card">
+          <label>Strike Zone Range: <input id="rangeMin" type="number" value="1" step="1"> — <input id="rangeMax" type="number" value="9" step="1"></label>
+          <label>Pitch Speed:
+            <select id="displaySpeed">
+              <option value="0.5">Fast (0.5s)</option>
+              <option value="1" selected>Medium (1s)</option>
+              <option value="2">Slow (2s)</option>
+            </select>
+          </label>
+          <label><input id="randomPitch" type="checkbox"> Random Pitch Call Mode</label>
+          <label><input id="soundToggle" type="checkbox" checked> Sound Effects</label>
+        </div>
+      </div>
+
+      <div class="visuals">
+        <svg id="networkSvg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"></svg>
+        <canvas id="plot" width="800" height="200"></canvas>
+      </div>
     </section>
 
     <aside class="right">
@@ -130,7 +162,10 @@
   </main>
 
   <footer class="footer">
-    <small>Keyboard: Space Play/Pause — → Step forward — ← Step back — R Randomize weights</small>
+    <div class="footer-inner">
+      <small>Keyboard: Space Play/Pause — → Step forward — ← Step back — R Randomize weights</small>
+      <div class="footer-credit">Created by Darek Staudt <img src="assets/baseball_icon.svg" alt="baseball" style="width:18px;height:18px;margin-left:8px;vertical-align:middle"></div>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>

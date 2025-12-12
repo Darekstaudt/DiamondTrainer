@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style><![CDATA[
+      .bg{fill:#FBF8F3}
+      .stitch{fill:none;stroke:#C53030;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:0.18}
+      .dash{stroke-dasharray:6 6}
+    ]]></style>
+  </defs>
+  <rect class="bg" width="120" height="120" rx="4" ry="4"/>
+  <!-- left stitch curve -->
+  <path class="stitch dash" d="M10 20 C30 40, 30 80, 10 100"/>
+  <!-- right stitch curve mirrored -->
+  <path class="stitch dash" d="M110 20 C90 40, 90 80, 110 100"/>
+  <!-- small stitch ticks to enhance texture -->
+  <g class="stitch">
+    <path d="M14 28 l6 6"/>
+    <path d="M18 22 l6 6"/>
+    <path d="M102 28 l-6 6"/>
+    <path d="M98 22 l-6 6"/>
+    <path d="M14 64 l6 6"/>
+    <path d="M18 58 l6 6"/>
+    <path d="M102 64 l-6 6"/>
+    <path d="M98 58 l-6 6"/>
+  </g>
+</svg>
